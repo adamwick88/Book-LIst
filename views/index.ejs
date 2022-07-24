@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://kit.fontawesome.com/25e90af8ee.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class ='todo-container'>
+        <h2>To do List</h2>
+        <section class="todo">
+            <form action="/" method="Post" class="todo-header">
+                <input type="text" name="title" value="title">
+                <textarea rows="6" cols="45" name="content">Content</textarea>
+                <button type="submit"><span class ="fas fa-plus">Add Text</span></button>
+
+            </form>
+            <ul class="todo-list">
+                <% todoTasks.forEach(details => { %>
+                    <li class="todo-list-item">
+                        <div class="todo-list-item-title"><%= details.title %></div>
+                        <div class="todo-list-item-content"><%= details.content %></div>
+                        <a href="/edit/<%= details._id %>" class="edit">
+                        <span class="fas fa-edit"></span>
+                        </a>
+                        <a href="/remove/<%= details._id %>" class="remove">
+                        <span class="fas fa-times"></span>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </section>
+</body>
+</html>
