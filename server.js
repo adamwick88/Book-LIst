@@ -4,10 +4,12 @@
 //Declare variables
 const express = require("express")
 const app = express()
+const cors = require('cors')
 const PORT=8000
 const mongoose=require("mongoose")
 require ('dotenv').config()
-const TodoTask=require('./models/TodoTask')
+const TodoTask=require('./models/todotask')
+
 
 //Set middleware
 app.set("view engine", "ejs")
@@ -79,4 +81,4 @@ app
             res.redirect('/')
         })
     })
-app.listen(PORT, ()=> console.log(`Server is running on port ${PORT}`))
+    app.listen(process.env.PORT || PORT, ()=> console.log(`Server is running on port ${PORT}`))
